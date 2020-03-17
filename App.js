@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import * as Font from 'expo-font';
-import Home from './screens/home';
+import Navigator from './routes/homeStack';
 import { AppLoading, SplashScreen } from 'expo';
 
 import { YellowBox } from 'react-native';
@@ -17,7 +17,7 @@ export default function App() {
   const [fontsLoaded, setFontsLoaded] = useState(false);
 
   if (fontsLoaded) {
-    return <Home />;
+    return <Navigator />;
   } else {
     return (
       <AppLoading startAsync={getFonts} onFinish={() => setFontsLoaded(true)} />
