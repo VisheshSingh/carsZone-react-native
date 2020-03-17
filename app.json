@@ -19,6 +19,8 @@
     "assetBundlePatterns": ["**/*"],
     "ios": {
       "supportsTablet": true
-    }
+    },
+    "description": "A car rating app built on top of react-native",
+    "githubUrl": "https://github.com/VisheshSingh/carsZone-react-native"
   }
 }
