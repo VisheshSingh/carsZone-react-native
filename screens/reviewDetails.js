@@ -1,16 +1,13 @@
 import React from 'react';
 import { StyleSheet, View, Text } from 'react-native';
+import { globalStyles } from '../styles/global';
 
 export default function home() {
   return (
-    <View style={styles.item}>
-      <Text>Review Details screen</Text>
+    <View style={globalStyles.container}>
+      <Text style={globalStyles.title}>Review Details screen</Text>
     </View>
   );
 }
 
-const styles = StyleSheet.create({
-  item: {
-    padding: 24
-  }
-});
+const styles = StyleSheet.create({});
