@@ -2,7 +2,10 @@ import React, { useState } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import * as Font from 'expo-font';
 import Home from './screens/home';
-import { AppLoading } from 'expo';
+import { AppLoading, SplashScreen } from 'expo';
+
+import { YellowBox } from 'react-native';
+YellowBox.ignoreWarnings(['Remote debugger']);
 
 const getFonts = () =>
   Font.loadAsync({
