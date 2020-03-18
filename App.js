@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import * as Font from 'expo-font';
-import Navigator from './routes/homeStack';
+import Navigator from './routes/drawer';
 import { AppLoading, SplashScreen } from 'expo';
 
 import { YellowBox } from 'react-native';
