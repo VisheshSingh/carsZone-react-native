@@ -1,16 +1,35 @@
-import React from 'react';
-import { StyleSheet, View, Text, Button } from 'react-native';
+import React, { useState } from 'react';
+import {
+  StyleSheet,
+  View,
+  Text,
+  FlatList,
+  TouchableOpacity
+} from 'react-native';
 import { globalStyles } from '../styles/global';
 
 export default function home({ navigation }) {
-  const onPressHandler = () => {
-    navigation.navigate('ReviewDetails');
-  };
+  const [carReviews, setCarReviews] = useState([
+    { make: 'Toyota', model: 'Corolla', key: '1', rating: 5 },
+    { make: 'Honda', model: 'Civic', key: '2', rating: 4 },
+    { make: 'Nissan', model: 'Sentra', key: '3', rating: 3 }
+  ]);
 
   return (
     <View style={globalStyles.container}>
-      <Text style={globalStyles.title}>Home screen</Text>
-      <Button title='Go to Review Details' onPress={onPressHandler} />
+      <FlatList
+        keyExtractor={item => item.key}
+        data={carReviews}
+        renderItem={({ item }) => (
+          <TouchableOpacity
+            onPress={() => navigation.navigate('ReviewDetails', item)}
+          >
+            <Text style={globalStyles.title}>
+              {item.make} - {item.model}
+            </Text>
+          </TouchableOpacity>
+        )}
+      />
     </View>
   );
 }
