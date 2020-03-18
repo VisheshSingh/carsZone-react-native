@@ -7,6 +7,7 @@ import {
   TouchableOpacity
 } from 'react-native';
 import { globalStyles } from '../styles/global';
+import Card from '../shared/card';
 
 export default function home({ navigation }) {
   const [carReviews, setCarReviews] = useState([
@@ -24,9 +25,11 @@ export default function home({ navigation }) {
           <TouchableOpacity
             onPress={() => navigation.navigate('ReviewDetails', item)}
           >
-            <Text style={globalStyles.title}>
-              {item.make} - {item.model}
-            </Text>
+            <Card>
+              <Text style={globalStyles.title}>
+                {item.make} - {item.model}
+              </Text>
+            </Card>
           </TouchableOpacity>
         )}
       />
