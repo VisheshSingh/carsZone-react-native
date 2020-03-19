@@ -4,12 +4,15 @@ import {
   View,
   Text,
   FlatList,
-  TouchableOpacity
+  TouchableOpacity,
+  Modal
 } from 'react-native';
 import { globalStyles } from '../styles/global';
 import Card from '../shared/card';
+import { MaterialIcons } from '@expo/vector-icons';
 
 export default function home({ navigation }) {
+  const [modalOpen, setModalOpen] = useState(false);
   const [carReviews, setCarReviews] = useState([
     { make: 'Toyota', model: 'Corolla', key: '1', rating: 5 },
     { make: 'Honda', model: 'Civic', key: '2', rating: 4 },
@@ -18,6 +21,27 @@ export default function home({ navigation }) {
 
   return (
     <View style={globalStyles.container}>
+      <Modal visible={modalOpen} animationType='slide'>
+        <View style={styles.modalContent}>
+          <MaterialIcons
+            name='close'
+            size={24}
+            style={{ ...styles.modalToggle, ...styles.modalClose }}
+            onPress={() => setModalOpen(false)}
+          />
+          <View>
+            <Text>Hello from modal 😀</Text>
+          </View>
+        </View>
+      </Modal>
+
+      <MaterialIcons
+        name='add'
+        style={styles.modalToggle}
+        size={24}
+        onPress={() => setModalOpen(true)}
+      />
+
       <FlatList
         keyExtractor={item => item.key}
         data={carReviews}
@@ -37,4 +61,19 @@ export default function home({ navigation }) {
   );
 }
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  modalToggle: {
+    marginBottom: 10,
+    borderWidth: 1,
+    borderColor: '#d3d3d3',
+    borderRadius: 10,
+    padding: 10,
+    alignSelf: 'center'
+  },
+  modalClose: {
+    marginTop: 20
+  },
+  modalContent: {
+    flex: 1
+  }
+});
