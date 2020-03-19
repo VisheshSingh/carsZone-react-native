@@ -15,3 +15,13 @@ export const globalStyles = StyleSheet.create({
     lineHeight: 20
   }
 });
+
+export const images = {
+  ratings: {
+    '1': '🚙',
+    '2': '🚙🚙',
+    '3': '🚙🚙🚙',
+    '4': '🚙🚙🚙🚙',
+    '5': '🚙🚙🚙🚙🚙'
+  }
+};
