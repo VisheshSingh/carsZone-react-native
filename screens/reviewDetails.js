@@ -11,6 +11,7 @@ export default function reviewDetails({ navigation }) {
         <Text style={globalStyles.title}>
           {navigation.getParam('make')} {navigation.getParam('model')}
         </Text>
+        <Text>{navigation.getParam('year')}</Text>
         <View style={styles.rating}>
           <Text>CarsZone Rating: {images.ratings[rating]}</Text>
         </View>

@@ -10,13 +10,14 @@ import {
 import { globalStyles } from '../styles/global';
 import Card from '../shared/card';
 import { MaterialIcons } from '@expo/vector-icons';
+import ReviewForm from './reviewForm';
 
 export default function home({ navigation }) {
   const [modalOpen, setModalOpen] = useState(false);
   const [carReviews, setCarReviews] = useState([
-    { make: 'Toyota', model: 'Corolla', key: '1', rating: 5 },
-    { make: 'Honda', model: 'Civic', key: '2', rating: 4 },
-    { make: 'Nissan', model: 'Sentra', key: '3', rating: 3 }
+    { make: 'Toyota', model: 'Corolla', key: '1', rating: 5, year: 2017 },
+    { make: 'Honda', model: 'Civic', key: '2', rating: 4, year: 2015 },
+    { make: 'Nissan', model: 'Sentra', key: '3', rating: 3, year: 2012 }
   ]);
 
   return (
@@ -30,7 +31,7 @@ export default function home({ navigation }) {
             onPress={() => setModalOpen(false)}
           />
           <View>
-            <Text>Hello from modal 😀</Text>
+            <ReviewForm />
           </View>
         </View>
       </Modal>
