@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, View, Text, Dimensions } from 'react-native';
+import { StyleSheet, View, Text, Dimensions, Image } from 'react-native';
 import { MaterialIcons } from '@expo/vector-icons';
 
 const Header = ({ navigation, title }) => {
@@ -15,7 +15,11 @@ const Header = ({ navigation, title }) => {
         onPress={toggleDrawer}
         style={styles.icon}
       />
-      <View>
+      <View style={styles.headerContainer}>
+        <Image
+          source={require('../assets/car-emoji.png')}
+          style={styles.headerImg}
+        />
         <Text style={styles.headerText}>{title}</Text>
       </View>
     </View>
@@ -39,6 +43,16 @@ const styles = StyleSheet.create({
   icon: {
     position: 'absolute',
     left: 16
+  },
+  headerImg: {
+    width: 30,
+    height: 30,
+    marginRight: 10
+  },
+  headerContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center'
   }
 });
 
