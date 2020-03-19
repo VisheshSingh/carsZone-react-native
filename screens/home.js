@@ -5,7 +5,9 @@ import {
   Text,
   FlatList,
   TouchableOpacity,
-  Modal
+  Modal,
+  TouchableWithoutFeedback,
+  Keyboard
 } from 'react-native';
 import { globalStyles } from '../styles/global';
 import Card from '../shared/card';
@@ -20,20 +22,31 @@ export default function home({ navigation }) {
     { make: 'Nissan', model: 'Sentra', key: '3', rating: 3, year: 2012 }
   ]);
 
+  const addReview = review => {
+    review.key = Math.random().toString();
+    setCarReviews(currentReviews => {
+      return [review, ...currentReviews];
+    });
+
+    setModalOpen(false);
+  };
+
   return (
     <View style={globalStyles.container}>
       <Modal visible={modalOpen} animationType='slide'>
-        <View style={styles.modalContent}>
-          <MaterialIcons
-            name='close'
-            size={24}
-            style={{ ...styles.modalToggle, ...styles.modalClose }}
-            onPress={() => setModalOpen(false)}
-          />
-          <View>
-            <ReviewForm />
+        <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+          <View style={styles.modalContent}>
+            <MaterialIcons
+              name='close'
+              size={24}
+              style={{ ...styles.modalToggle, ...styles.modalClose }}
+              onPress={() => setModalOpen(false)}
+            />
+            <View>
+              <ReviewForm addReview={addReview} />
+            </View>
           </View>
-        </View>
+        </TouchableWithoutFeedback>
       </Modal>
 
       <MaterialIcons
