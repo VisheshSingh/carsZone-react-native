@@ -31,6 +31,12 @@ export default function home({ navigation }) {
     setModalOpen(false);
   };
 
+  // const removeReview = id => {
+  //   setCarReviews(currentReviews => {
+  //     return currentReviews.filter(review => review.key !== id);
+  //   });
+  // };
+
   return (
     <View style={globalStyles.container}>
       <Modal visible={modalOpen} animationType='slide'>

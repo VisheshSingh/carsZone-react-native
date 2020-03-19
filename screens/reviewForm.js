@@ -1,5 +1,12 @@
 import React from 'react';
-import { StyleSheet, View, TextInput, Button, Keyboard } from 'react-native';
+import {
+  StyleSheet,
+  View,
+  TextInput,
+  Text,
+  Button,
+  Keyboard
+} from 'react-native';
 import { Formik } from 'formik';
 import { globalStyles } from '../styles/global';
 import * as yup from 'yup';
@@ -45,26 +52,43 @@ const ReviewForm = ({ addReview }) => {
               style={globalStyles.inputType}
               value={formikProps.values.make}
               onChangeText={formikProps.handleChange('make')}
+              onBlur={formikProps.handleBlur('make')}
             />
+            <Text style={globalStyles.errorText}>
+              {formikProps.touched.make && formikProps.errors.make}
+            </Text>
             <TextInput
               placeholder='Model'
               style={globalStyles.inputType}
               value={formikProps.values.model}
               onChangeText={formikProps.handleChange('model')}
+              onBlur={formikProps.handleBlur('model')}
             />
+            <Text style={globalStyles.errorText}>
+              {formikProps.touched.model && formikProps.errors.model}
+            </Text>
             <TextInput
               placeholder='Year'
               style={globalStyles.inputType}
               value={formikProps.values.year}
+              keyboardType='numeric'
               onChangeText={formikProps.handleChange('year')}
+              onBlur={formikProps.handleBlur('year')}
             />
+            <Text style={globalStyles.errorText}>
+              {formikProps.touched.year && formikProps.errors.year}
+            </Text>
             <TextInput
               placeholder='Rating (1-5)'
               style={globalStyles.inputType}
               value={formikProps.values.rating}
               keyboardType='numeric'
               onChangeText={formikProps.handleChange('rating')}
+              onBlur={formikProps.handleBlur('rating')}
             />
+            <Text style={globalStyles.errorText}>
+              {formikProps.touched.rating && formikProps.errors.rating}
+            </Text>
             <Button
               title='Submit'
               color='#41b883'

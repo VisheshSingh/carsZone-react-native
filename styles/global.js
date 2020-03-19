@@ -22,6 +22,11 @@ export const globalStyles = StyleSheet.create({
     borderColor: '#ddd',
     fontSize: 18,
     borderRadius: 6
+  },
+  errorText: {
+    fontWeight: 'bold',
+    textAlign: 'center',
+    color: 'crimson'
   }
 });
 
